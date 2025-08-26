@@ -11,13 +11,22 @@ I choose Pascal VOC 2012 instead of 2007 as the older version was no longer read
 
 3. How did you handle downloading and storing the dataset on Windows? Any challenges?
 
-There were some initial challenges as I missed the step of having my .gitignore document setup to ignore data files. Therefore, when I 
+There were some initial challenges as I missed the step of having my .gitignore document setup to ignore data files. I was unable to sych with git due to there being too much data. So I started over. Now it works great, and I shall remember the importance of a well-crafted .gitignore file!
 
 4. How did you verify the dataset was complete and correctly extracted?
+
+I included print statements along the way confirming "Download complete!" and "Extraction complete!". Furthermore, I confirmed the number or .jpg images (17125) and 'xml annotation files (17125). Lastly, I displayed a sample image as well as a sample image with bounding box using and a sample image with bounding box.
 
 5. What tools and libraries did you use for initial exploration?
 
 6. How did you visualize images and bounding boxes?
+
+To visualize the images:
+I used the Image class from Python's Pillow library to open the .jpg image files and create and Image object. This step reads the .jpg files' binary data and decodes it into a structured format that represents the image's pixels.
+Then I used Matplotlib's pyplot module to display the image data using .imshow(img) and plt.show()
+
+To visualize the bounding boxes:
+
 
 7. What did you learn about the variability in image sizes, aspect ratios, and bounding box formats?
 
