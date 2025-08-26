@@ -1,0 +1,51 @@
+# ==========================
+# Pascal VOC Project .gitignore
+# ==========================
+
+# Dataset folders (Pascal VOC 2007/2012)
+VOCdevkit/
+data/
+datasets/
+*.zip
+*.tar
+*.tar.gz
+
+# Model weights and checkpoints
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+runs/
+outputs/
+
+# Logs and results
+*.log
+*.out
+*.err
+logs/
+results/
+wandb/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+env/
+venv/
+.conda/
+
+# IDE/project files
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db

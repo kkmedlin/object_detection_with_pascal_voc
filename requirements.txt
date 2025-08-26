@@ -1,0 +1,11 @@
+# Python dependencies
+
+torch
+torchvision
+ultralytics   # for YOLOv8 (object detection baseline)
+matplotlib
+pillow        # image handling
+numpy
+pandas
+scikit-learn  # evaluation metrics
+jupyter       # if you want notebooks
