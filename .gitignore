@@ -3,9 +3,9 @@
 # ==========================
 
 # Dataset folders (Pascal VOC 2007/2012)
-VOCdevkit/
 data/
-datasets/
+VOCdevkit/
+VOC2012/
 *.zip
 *.tar
 *.tar.gz
