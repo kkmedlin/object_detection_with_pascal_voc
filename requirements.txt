@@ -8,4 +8,4 @@ pillow        # image handling
 numpy
 pandas
 scikit-learn  # evaluation metrics
-jupyter       # if you want notebooks
+jupyter       
