@@ -1,20 +1,21 @@
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 import torchvision
 from torchvision import transforms, models, datasets
+from torchvision.models import resnet50, ResNet50_Weights
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_auc_score, multilabel_confusion_matrix, roc_curve, auc
 import numpy as np
+import os
 
 ########################################
 # 1. Hyperparameters
 ########################################
-BATCH_SIZE = 32
+BATCH_SIZE = 8
 LR = 0.001
-EPOCHS = 5
+EPOCHS = 2
 NUM_CLASSES = 20   # Pascal VOC has 20 classes
 
 ########################################
@@ -28,41 +29,71 @@ transform = transforms.Compose([
 ])
 
 ########################################
-# 3. Dataset & Dataloader
+# 3. Multi-label target encoding
 ########################################
-# Multi-label classification -> target is a vector of length 20
+VOC_CLASSES = [
+    'aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus',
+    'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse',
+    'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train',
+    'tvmonitor'
+]
+
+def encode_voc_target(target):
+    """Converts VOC annotation to multi-hot vector for 20 classes"""
+    objects = target['annotation'].get('object', [])
+    if not isinstance(objects, list):
+        objects = [objects]  # single object case
+    labels = [0] * NUM_CLASSES
+    for obj in objects:
+        if obj['name'] in VOC_CLASSES:
+            idx = VOC_CLASSES.index(obj['name'])
+            labels[idx] = 1
+    return torch.tensor(labels, dtype=torch.float32)
+
+########################################
+# 4. Dataset & Dataloader
+########################################
+repo_root = "C:/Users/kamed/Desktop/argonne_K/pascal-voc-project"
+voc_root = os.path.join(repo_root, "VOCdevkit")  # parent of VOC2012
+
 train_dataset = torchvision.datasets.VOCDetection(
-    root="./data",
+    root=repo_root,
     year="2012",
     image_set="train",
     download=False,
     transform=transform,
-    target_transform=lambda target: torch.tensor([
-        int(obj['name'] in [o['name'] for o in target['annotation']['object']])
-        for obj in [{"name": cls} for cls in [
-            'aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus',
-            'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse',
-            'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train',
-            'tvmonitor'
-        ]]
-    ])
+    target_transform=encode_voc_target
 )
 
 val_dataset = torchvision.datasets.VOCDetection(
-    root="./data",
+    root=repo_root,
     year="2012",
     image_set="val",
     download=False,
     transform=transform,
-    target_transform=train_dataset.target_transform
+    target_transform=encode_voc_target
 )
-   
-train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=2)
-val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=2)
+
+train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=0, pin_memory=False)
+val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_workers=0, pin_memory=False)
 
 ########################################
 # 4. Model (ResNet50 with transfer learning)
 ########################################
+
+model = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
+for param in model.parameters():
+    param.requires_grad = False
+
+model.fc = nn.Sequential(
+    nn.Linear(model.fc.in_features, NUM_CLASSES),
+    nn.Sigmoid()
+)
+
+device = torch.device("cpu")  # force CPU
+model = model.to(device)
+print("model ready")
+'''
 model = models.resnet50(pretrained=True)
 for param in model.parameters():
     param.requires_grad = False   # freeze feature extractor
@@ -75,6 +106,7 @@ model.fc = nn.Sequential(
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = model.to(device)
+'''
 
 ########################################
 # 5. Loss & Optimizer
@@ -97,7 +129,6 @@ def train_one_epoch(model, loader, optimizer, criterion):
         optimizer.step()
         running_loss += loss.item()
     return running_loss / len(loader)
-
 
 ########################################
 # 7. Validation (ROC, Confusion Matrix)
@@ -131,24 +162,6 @@ for epoch in range(EPOCHS):
     roc_auc, cm, y_true, y_pred = evaluate(model, val_loader)
     print(f"Epoch {epoch+1}/{EPOCHS} - Loss: {loss:.4f} - Val ROC AUC: {roc_auc:.4f}")
     
-########################################
-# Wrap to handle Windows Pickling Error
-########################################
-
-def custom_collate_fn(batch):
-    return tuple(zip(*batch))
-
-if __name__ == "__main__":
-    train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True, 
-                              num_workers=2, collate_fn=custom_collate_fn)
-    val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, 
-                            num_workers=2, collate_fn=custom_collate_fn)
-
-    for epoch in range(EPOCHS):
-        loss = train_one_epoch(model, train_loader, optimizer, criterion)
-        roc_auc, cm, y_true, y_pred = evaluate(model, val_loader)
-        print(f"Epoch {epoch+1}/{EPOCHS} - Loss: {loss:.4f} - Val ROC AUC: {roc_auc:.4f}")
-
 ########################################
 # 9. Plot ROC Curve for one class (example: 'person')
 ########################################
