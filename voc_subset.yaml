@@ -20,5 +20,5 @@ names:
 - train
 - tvmonitor
 nc: 20
-train: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\train\images
-val: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\val\images
+train: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\train
+val: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\val
