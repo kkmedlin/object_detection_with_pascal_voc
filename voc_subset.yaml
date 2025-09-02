@@ -1,0 +1,24 @@
+names:
+- aeroplane
+- bicycle
+- bird
+- boat
+- bottle
+- bus
+- car
+- cat
+- chair
+- cow
+- diningtable
+- dog
+- horse
+- motorbike
+- person
+- pottedplant
+- sheep
+- sofa
+- train
+- tvmonitor
+nc: 20
+train: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\train\images
+val: C:/Users/kamed/Desktop/argonne_K/object_detection_with_pascal_voc\YOLO_VOC_subset\val\images

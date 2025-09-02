@@ -10,6 +10,12 @@ VOC2012/
 *.tar
 *.tar.gz
 
+# YOLO outputs
+yolo_predictions/
+yolo_training_results/
+YOLO_VOC_subset/
+YOLO_VOC/
+
 # Model weights and checkpoints
 *.pth
 *.pt
@@ -49,3 +55,4 @@ venv/
 # OS files
 .DS_Store
 Thumbs.db
+*.tmp
