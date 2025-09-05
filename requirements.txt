@@ -9,3 +9,5 @@ numpy
 pandas
 scikit-learn  # evaluation metrics
 jupyter       
+seaborn
+scipy
