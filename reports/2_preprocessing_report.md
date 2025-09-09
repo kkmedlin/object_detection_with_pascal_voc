@@ -11,7 +11,7 @@ I created a custom collate_fn for the DataLoader. By default, PyTorch's DataLoad
 
 3. Why did you need a custom collate_fn for object detection?
 
-In addition to havine images of different sizes, images have different numbers of annotations. a custom collate_fn is needed to i. keep image tensors as a list, and ii. group an image and its target dictionary into a list. This avoids two errors due to trying to stack different sized tensors -- one from different sizes images; another from differing number of annotations per image.  
+In addition to having images of different sizes, images have different numbers of annotations. a custom collate_fn is needed to i. keep image tensors as a list, and ii. group an image and its target dictionary into a list. This avoids two errors due to trying to stack different sized tensors -- one from different sizes images; another from differing number of annotations per image.  
 
 4. How did you apply preprocessing transforms (resize, normalize, convert to tensor)?
 
