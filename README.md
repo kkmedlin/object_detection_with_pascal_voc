@@ -41,23 +41,26 @@ ResNet is optimal for tasks requiring high-confidence detection of common classe
 
 ---
 
+
 ## ⚙️ How to Run / Reproduce  
 
 ### 1. Clone the repository  
 ```bash
 git clone https://github.com/yourusername/object-detection-benchmark.git
 cd object-detection-benchmark
+``` 
 
-2. Install dependencies
-
+### 2. Install dependencies  
+```bash
 pip install -r requirements.txt
+```  
 
-3. Run notebooks
+### 3. Run notebooks
 
 Launch Jupyter and open the notebooks in order:
-
+```bash
 jupyter lab
-
+```
 Then open:
 
     notebooks/1_setup.ipynb
@@ -66,9 +69,6 @@ Then open:
 
     notebooks/3_resnet.ipynb
 
-    notebooks/4_yolo.ipynb
-
-    notebooks/5_analysis.ipynb
     notebooks/4_yolo.ipynb
 
     notebooks/5_analysis.ipynb
