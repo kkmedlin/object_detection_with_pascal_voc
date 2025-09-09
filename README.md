@@ -41,8 +41,8 @@ ResNet is best for high-confidence detection of common classes; YOLO is best for
 
 ### 1. Clone the repository  
 ```bash
-git clone https://github.com/yourusername/object-detection-benchmark.git
-cd object-detection-benchmark
+git clone https://github.com/kkmedlin/object_detection_with_pascal_voc.git
+cd object_detection_with_pascal_voc
 ``` 
 
 ### 2. Install dependencies  
@@ -69,9 +69,13 @@ Then open:
     notebooks/5_analysis.ipynb
 
 ---
+
 ### **Visuals**  
-![mAP vs F1 Scatterplot (YOLO)](results/yolo_results/yolo_map_vs_f1_scatter.png)
-![PRF1 Bar Chart (ResNet)](results/resnet_results/resnet_perclass_prf_combined.png)
-![PRF1 Bar Chart (YOLO)](results/yolo_results/yolo_perclass_prf1.png)
+![mAP vs F1 Scatterplot (YOLO)](results/YOLO_object_detection_results/yolo_map_vs_f1_scatter.png)
+
+![PRF1 Bar Chart (ResNet)](results/ResNet_classification_results\resnet_perclass_prf_combined.png)
+
+![PRF1 Bar Chart (YOLO)](results/YOLO_object_detection_results/yolo_perclass_prf1.png)
+
 ![Precision vs Recall Scatterplot](results/comparison_results/precision_recall_scatter.png)
  
