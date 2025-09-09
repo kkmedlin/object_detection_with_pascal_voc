@@ -1,4 +1,4 @@
-# Pascal VOC: Comparing ResNet Classification vs YOLO Object Detection  
+# Pascal VOC ResNet Classification vs YOLO Object Detection  
 Evaluating classification and detection performance on the Pascal VOC dataset.  
 
 ---
@@ -37,7 +37,7 @@ ResNet is best for high-confidence detection of common classes; YOLO is best for
 ---
 
 
-## ⚙️ How to Run / Reproduce  
+## How to Run / Reproduce  
 
 ### 1. Clone the repository  
 ```bash
@@ -71,11 +71,13 @@ Then open:
 ---
 
 ### **Visuals**  
-![mAP vs F1 Scatterplot (YOLO)](results/yolo_results/yolo_map_vs_f1_scatter.png)
+![FPR_vs TPR ROC_Curves (ResNet)](results/resnet_results/resnet_val_roc_curves.png)
 
 ![PRF1 Bar Chart (ResNet)](results/resnet_results/resnet_perclass_prf1.png)
 
 ![PRF1 Bar Chart (YOLO)](results/yolo_results/yolo_perclass_prf1.png)
+
+![mAP vs F1 Scatterplot (YOLO)](results/yolo_results/yolo_map_vs_f1_scatter.png)
 
 ![Precision vs Recall Scatterplot](results/comparison_results/precision_recall_scatter.png)
  
