@@ -1,12 +1,12 @@
 # Pascal VOC: ResNet vs YOLO
-Evaluating ResNet classification and YOLO object detection performance on the Pascal VOC dataset.  
+Compared ResNet classification and YOLO object detection on Pascal VOC to evaluate coverage vs peak performance trade-offs and the impact of class imbalance. ResNet is faster and excels on common classes, while YOLO ensures full class coverage.
 
 ---
 ## Motivation
 
-1. After extensive work on classification problems for my dissertation, I wanted to expand my toolkit to include object detection. I was especially interested in exploring how adding localization changes performance and outcomes.  
+1. Expand my ML toolkit beyond classification to object detection and explore how localization affects performance.
 
-2. I also wanted to experiment with using AI as a coding assistant. I primarily worked with ChatGPT, which not only helped with syntax and debugging but also generated thoughtful reflection questions about my progress when prompted. You can see these questions and my answers in the /development_reports, which document my learning curve throughout the project.
+2. Practice reflective learning with AI assistance: I used ChatGPT to assist with debugging, syntax, and to generate reflection questions. See /development_reports for my learning curve and answers.
 
 ---
 
@@ -24,8 +24,8 @@ Evaluating ResNet classification and YOLO object detection performance on the Pa
   - Both models struggle on underrepresented classes (bottle, chair, cow, potted plant), highlighting imbalance issues.
 
 - **Metric Insights:**  
-  - F1 is an effective common metric for comparison (strong correlation with YOLO’s mAP, r = 0.92).  
-  - Choice of metric depends on priorities: high Recall avoids missing objects; high Precision avoids misclassification.
+  - F1 is an effective common metric for comparison (strong correlation between YOLO’s mAP and F1, r = 0.92).  
+  - Choice of Recall/Precision metric depends on priorities: high Recall avoids missing objects; high Precision avoids misclassification.
 
 - **Practical Considerations:**  
   - ResNet is faster (10–15 min vs 30–50 min) and better for high-confidence classification of common classes.  
