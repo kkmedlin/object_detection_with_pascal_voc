@@ -6,7 +6,7 @@ Evaluating classification and detection performance on the Pascal VOC dataset.
 
 1. After extensive work on classification problems for my dissertation, I wanted to expand my toolkit to include object detection. I was especially interested in exploring how adding localization changes performance.  
 
-2. I also wanted to experiment with using AI as a coding assistant. I primarily worked with ChatGPT, which not only helped with syntax and debugging but also generated thoughtful reflection questions about my progress when prompted. You can see these questions and my answers in the project reports, which document my learning curve throughout the project.
+2. I also wanted to experiment with using AI as a coding assistant. I primarily worked with ChatGPT, which not only helped with syntax and debugging but also generated thoughtful reflection questions about my progress when prompted. You can see these questions and my answers in the /development_reports, which document my learning curve throughout the project.
 
 ---
 
@@ -71,11 +71,11 @@ Then open:
 ---
 
 ### **Visuals**  
-![mAP vs F1 Scatterplot (YOLO)](results/YOLO_object_detection_results/yolo_map_vs_f1_scatter.png)
+![mAP vs F1 Scatterplot (YOLO)](results/yolo_results/yolo_map_vs_f1_scatter.png)
 
-![PRF1 Bar Chart (ResNet)](results/ResNet_classification_results\resnet_perclass_prf_combined.png)
+![PRF1 Bar Chart (ResNet)](results/resnet_results/resnet_perclass_prf1.png)
 
-![PRF1 Bar Chart (YOLO)](results/YOLO_object_detection_results/yolo_perclass_prf1.png)
+![PRF1 Bar Chart (YOLO)](results/yolo_results/yolo_perclass_prf1.png)
 
 ![Precision vs Recall Scatterplot](results/comparison_results/precision_recall_scatter.png)
  
