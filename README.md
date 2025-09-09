@@ -36,7 +36,7 @@ ResNet is optimal for tasks requiring high-confidence detection of common classe
 
 ---
 ### **Visuals**  
-![Precision vs Recall Scatterplot](ResNet_classification_results/plots/precision_recall_scatter.png)
+![Precision vs Recall Scatterplot](results/comparison_results/precision_recall_scatter.png)
  
 
 ---
