@@ -1,5 +1,5 @@
-# Pascal VOC ResNet Classification vs YOLO Object Detection  
-Evaluating classification and detection performance on the Pascal VOC dataset.  
+# Pascal VOC: ResNet vs YOLO
+Evaluating ResNet classification and YOLO object detection performance on the Pascal VOC dataset.  
 
 ---
 ## Motivation
