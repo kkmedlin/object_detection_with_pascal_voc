@@ -1,10 +1,10 @@
-# Pascal VOC Object Detection Comparison – ResNet vs YOLO  
+# Pascal VOC: Comparing ResNet Classification vs YOLO Object Detection  
 Evaluating classification and detection performance on the Pascal VOC dataset.  
 
 ---
 ## Motivation
 
-1. After extensive work on classification problems for my dissertation, I wanted to expand my toolkit to include object detection. I was especially interested in exploring how adding localization changes performance.  
+1. After extensive work on classification problems for my dissertation, I wanted to expand my toolkit to include object detection. I was especially interested in exploring how adding localization changes performance and outcomes.  
 
 2. I also wanted to experiment with using AI as a coding assistant. I primarily worked with ChatGPT, which not only helped with syntax and debugging but also generated thoughtful reflection questions about my progress when prompted. You can see these questions and my answers in the /development_reports, which document my learning curve throughout the project.
 
