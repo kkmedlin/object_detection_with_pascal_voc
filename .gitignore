@@ -11,8 +11,8 @@ VOC2012/
 *.tar.gz
 
 # YOLO outputs
-yolo_predictions/
-yolo_training_results/
+#yolo_predictions/
+#yolo_training_results/
 YOLO_VOC_subset/
 YOLO_VOC/
 
