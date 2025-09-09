@@ -32,7 +32,7 @@ I looped through batches of images and visualized the first image of the batch
 
 8. What errors did you encounter when stacking tensors of different sizes? How did you resolve them?
 
-Initially, I got a tensor stacking error due to images in Pascal VOC being different sizes. I resolved it by defining a custom collate_fn that returns lists of tensorts intead of trying to stack image tensors into a single tensor.
+Initially, I got a tensor stacking error due to images in Pascal VOC being different sizes. I resolved it by defining a custom collate_fn that returns lists of tensors intead of trying to stack image tensors into a single tensor.
 
 9. How does preprocessing and batch preparation affect training stability and model performance?
 

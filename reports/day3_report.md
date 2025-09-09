@@ -12,7 +12,7 @@ Why did we need to handle the single-object vs multiple-object case in encode_vo
 multi-hot vectors are used for identifying images with multiple objects. in contrast, single-hot vectors are used for identifying images with or without a single object (only for binary datasets)
 
 Why do we use transforms.Resize and transforms.Normalize before feeding images to ResNet50?
-batches of tensors need to be the same size - reason for resizeing. Normalization puts pixel values on the same comparative RGB scale. 
+batches of tensors need to be the same size - reason for resizing. Normalization puts pixel values on the same comparative RGB scale. 
 
 What would happen if the root directory for VOCDetection is set incorrectly?
 if the root directory for VOC Dectection is set incorrectly, the data won't get loaded in and VOCDetection will throw an error
@@ -66,4 +66,4 @@ How can you verify that your dataset splits (train / val) are the same across cl
 You can print out a test to confirm they're the same.
 
 If we had a CUDA-capable GPU, which sections would benefit the most?
-The model section involving matrix multiplicaiton as data is passed forwards and backwards over the model.
+The model section as model training involves matrix multiplicaiton as data is passed forwards and backwards over the model.
