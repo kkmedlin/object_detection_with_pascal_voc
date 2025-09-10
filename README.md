@@ -70,7 +70,7 @@ Then open:
 
 ---
 
-### **Visuals**  
+### **Selected Visuals**  
 ![FPR_vs TPR ROC_Curves (ResNet)](results/resnet_results/resnet_val_roc_curves.png)
 
 ![PRF1 Bar Chart (ResNet)](results/resnet_results/resnet_perclass_prf1.png)
