@@ -1,10 +1,10 @@
 # Pascal VOC: ResNet vs YOLO
-Compared ResNet classification and YOLO object detection on Pascal VOC to evaluate coverage vs peak performance trade-offs and the impact of class imbalance. ResNet is faster and excels on common classes, while YOLO ensures full class coverage.
+A comparison of ResNet classification and YOLO object detection on the Pascal VOC dataset, evauating coverage vs peak performance trade-offs and the impact of class imbalance. ResNet is faster and excels on common classes while YOLO ensures full class coverage.
 
 ---
 ## Motivation
 
-1. Expand my ML toolkit beyond classification to object detection and explore how localization affects performance.
+1. Expand my ML toolkit beyond classification to object detection and explore how localization impacts performance.
 
 2. Practice reflective learning with AI assistance: I used ChatGPT to assist with debugging, syntax, and to generate reflection questions. See /development_reports for my learning curve and answers.
 
